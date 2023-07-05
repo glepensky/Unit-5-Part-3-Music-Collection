@@ -45,17 +45,20 @@ console.log(collection);
 // and loop over the array and log each album as 'TITLE by ARTIST, published in YEAR'.
 
 function showCollection(title, artist, yearPublished) {
-    console.log('The numbers of albums in my collection:', collection.length);
+    console.log('The number of albums in my collection:', collection.length);
 
-    for (let albums of collection) {
-        console.log(collection[0].title + ' by ' + collection[0].artist + ',' + ' published in ' + collection[0].yearPublished + '.');
+    for (let index in collection) {
+
+        console.log(collection[index].title + ' by ' + collection[index].artist + ',' + ' published in ' + collection[index].yearPublished + '.');
     }
 }
 
 
 showCollection(collection);
 
-console.log(collection[0].title);
+// look into for..of and for...in loops and the difference. 
+
+
 
 
 
@@ -65,11 +68,18 @@ console.log(collection[0].title);
 // loop through the collection array and add any objects matfhing artist to the array,
 // and return the array with matching results. 
 
-function findByArtist(artist) {
+function findByArtist(criteria) {
     let sameArtistCollection = [];
-
-
+    for (let index = 0; index < collection.length; index++) {
+        console.log(collection.length);
+        if (collection[index].artist === criteria) {
+            sameArtistCollection.push(collection[index].artist);
+        }
+    }
+    return sameArtistCollection
 }
+
+console.log(findByArtist('Sufjan Stevens'));
 
 
 
